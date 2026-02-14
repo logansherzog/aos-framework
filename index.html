@@ -879,6 +879,269 @@
     font-size: 0.75rem;
   }
 
+  /* EOS FOUNDATION */
+  .eos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .eos-card {
+    border-radius: 14px;
+    padding: 24px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .eos-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .eos-card p {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .eos-card .eos-icon {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  .eos-bridge {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .bridge-side {
+    flex: 1;
+    border-radius: 16px;
+    padding: 32px 28px;
+    border: 1px solid;
+  }
+  .bridge-eos {
+    background: rgba(245,158,11,0.04);
+    border-color: rgba(245,158,11,0.2);
+  }
+  .bridge-aos {
+    background: rgba(0,212,170,0.04);
+    border-color: rgba(0,212,170,0.2);
+  }
+  .bridge-side h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .bridge-eos h3 { color: var(--task-color); }
+  .bridge-aos h3 { color: var(--agent-color); }
+  .bridge-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bridge-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .bridge-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .bridge-eos .bridge-list li::before { background: var(--task-color); }
+  .bridge-aos .bridge-list li::before { background: var(--agent-color); }
+  .bridge-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-muted);
+    min-width: 48px;
+  }
+  .eos-summary {
+    text-align: center;
+    padding: 20px 28px;
+    border-radius: 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .eos-summary strong { color: var(--text); }
+
+  /* A WEEK IN AOS */
+  .week-timeline {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 48px;
+  }
+  .week-timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .week-day {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .week-day:last-child { margin-bottom: 0; }
+  .week-day-marker {
+    position: absolute;
+    left: -48px;
+    top: 4px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    z-index: 2;
+  }
+  .week-day-content {
+    border-radius: 14px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .week-day-content h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .week-day-content p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .week-day-content .week-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .week-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  .week-item .wi-tag {
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .wi-human { background: rgba(245,158,11,0.12); color: var(--task-color); }
+  .wi-skill { background: rgba(74,125,255,0.12); color: var(--skill-color); }
+  .wi-agent { background: rgba(0,212,170,0.12); color: var(--agent-color); }
+  .wi-sop { background: rgba(139,92,246,0.12); color: var(--sop-color); }
+
+  .cadence-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .cadence-card {
+    border-radius: 14px;
+    padding: 24px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .cadence-card .cadence-freq {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .cadence-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .cadence-card p {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .cadence-card .cadence-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .l10-comparison {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .l10-col {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .l10-header {
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .l10-eos .l10-header { background: rgba(245,158,11,0.08); color: var(--task-color); }
+  .l10-aos .l10-header { background: rgba(0,212,170,0.08); color: var(--agent-color); }
+  .l10-body {
+    padding: 16px 20px;
+  }
+  .l10-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,42,61,0.5);
+    font-size: 0.82rem;
+  }
+  .l10-row:last-child { border-bottom: none; }
+  .l10-row .l10-item { color: var(--text-dim); }
+  .l10-row .l10-time { color: var(--text-muted); font-weight: 600; font-size: 0.75rem; white-space: nowrap; }
+  .l10-new-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    background: rgba(0,212,170,0.15);
+    color: var(--agent-color);
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+  }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .ladder-track { flex-direction: column; align-items: center; gap: 12px; }
@@ -894,6 +1157,13 @@
     .insight-box { padding: 28px; }
     .timeline-bar { flex-direction: column; height: auto; }
     .timeline-segment { padding: 12px; }
+    .eos-grid { grid-template-columns: 1fr; }
+    .eos-bridge { flex-direction: column; }
+    .bridge-arrow { transform: rotate(90deg); min-width: unset; min-height: 32px; }
+    .cadence-grid { grid-template-columns: repeat(2, 1fr); }
+    .l10-comparison { flex-direction: column; }
+    .week-timeline { padding-left: 48px; }
+    .week-day-marker { left: -40px; width: 30px; height: 30px; font-size: 0.6rem; }
   }
 </style>
 </head>
@@ -912,6 +1182,76 @@
       <div class="hero-stat stat-skills"><div class="num">14</div><div class="label">Skills</div></div>
       <div class="hero-stat stat-agents"><div class="num">6</div><div class="label">Agents</div></div>
     </div>
+  </div>
+</section>
+
+<!-- EOS FOUNDATION -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--task-color);">The Foundation</div>
+  <h2>AOS Starts Where EOS Left Off</h2>
+  <p class="section-desc">The Entrepreneurial Operating System (EOS) gave growing companies a shared language and operating rhythm. AOS keeps every piece that works — and adds a layer EOS never had: the ability to turn repeating work into permanent infrastructure.</p>
+
+  <div class="eos-grid">
+    <div class="eos-card">
+      <div class="eos-icon">🎯</div>
+      <h4>Vision/Traction Organizer (V/TO)</h4>
+      <p>The strategic document. 10-year target, 3-year picture, 1-year plan, quarterly Rocks. Gets the whole team on the same page about where you're going.</p>
+    </div>
+    <div class="eos-card">
+      <div class="eos-icon">🪨</div>
+      <h4>Rocks</h4>
+      <p>The 3-7 most important things each quarter. Not a to-do list — a commitment. Every person has Rocks. Every Rock has an owner. Every quarter, you score them.</p>
+    </div>
+    <div class="eos-card">
+      <div class="eos-icon">📊</div>
+      <h4>Scorecard</h4>
+      <p>5-15 numbers the leadership team reviews weekly. Leading indicators, not lagging. You see problems before they become fires.</p>
+    </div>
+    <div class="eos-card">
+      <div class="eos-icon">📋</div>
+      <h4>Issues List</h4>
+      <p>A living list of problems, ideas, and obstacles. Anything that's unresolved goes here. You process it with IDS: Identify, Discuss, Solve.</p>
+    </div>
+    <div class="eos-card">
+      <div class="eos-icon">🔟</div>
+      <h4>Level 10 Meeting (L10)</h4>
+      <p>The weekly pulse. Same day, same time, same agenda. Scorecard review, Rock check-in, headlines, and most of the time spent solving issues using IDS.</p>
+    </div>
+    <div class="eos-card">
+      <div class="eos-icon">💡</div>
+      <h4>IDS (Identify, Discuss, Solve)</h4>
+      <p>The decision-making process. Don't talk around problems — name it, debate it, decide on the action. Then it becomes a To-Do with an owner and a deadline.</p>
+    </div>
+  </div>
+
+  <div class="eos-bridge">
+    <div class="bridge-side bridge-eos">
+      <h3>EOS Stops Here</h3>
+      <ul class="bridge-list">
+        <li>Issue surfaces in the L10 meeting</li>
+        <li>Team uses IDS to solve it</li>
+        <li>It becomes a To-Do (assigned to a person)</li>
+        <li>Person does it. Checks it off next week.</li>
+        <li>If it recurs… the team solves it again. And again.</li>
+      </ul>
+    </div>
+    <div class="bridge-arrow">→</div>
+    <div class="bridge-side bridge-aos">
+      <h3>AOS Continues</h3>
+      <ul class="bridge-list">
+        <li>Issue surfaces the same way — meetings, feedback, data</li>
+        <li>Team solves it the first time (Task)</li>
+        <li>If it recurs, the team documents it (SOP)</li>
+        <li>If it can be triggered by a human, build a Skill</li>
+        <li>If it should run without anyone watching, build an Agent</li>
+        <li><strong style="color:var(--text);">The issue never needs solving again.</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="eos-summary">
+    <strong>AOS doesn't replace EOS.</strong> It extends the loop. EOS gives you the rhythm — the meetings, the Rocks, the Scorecard. AOS gives you the upgrade path — so the things you solve this quarter become <strong>infrastructure you never touch again.</strong>
   </div>
 </section>
 
@@ -1348,6 +1688,161 @@
     <div class="fit-row"><div class="fit-num">3</div><div class="fit-name" style="color:var(--accent-cyan);">The Ecosystem Compound Loop</div><div class="fit-answer">"Why does this matter long-term?"</div></div>
     <div class="fit-row"><div class="fit-num">4</div><div class="fit-name" style="color:var(--accent-orange);">The Accountability Split</div><div class="fit-answer">"What changes about my role?"</div></div>
     <div class="fit-row"><div class="fit-num">5</div><div class="fit-name" style="color:var(--accent-green);">The Node Promotion Filter</div><div class="fit-answer">"How do I decide what to build?"</div></div>
+  </div>
+</section>
+
+<!-- A WEEK IN AOS -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--accent-cyan);">Operating Rhythm</div>
+  <h2>A Week in AOS</h2>
+  <p class="section-desc">AOS doesn't add meetings. It upgrades the ones you already have. Here's what the weekly, monthly, and quarterly cadences look like when Skills and Agents are part of the team.</p>
+
+  <!-- Cadence overview -->
+  <div class="cadence-grid">
+    <div class="cadence-card">
+      <div class="cadence-icon">📅</div>
+      <div class="cadence-freq">Weekly</div>
+      <h4>AOS-Enhanced L10</h4>
+      <p>Same 90-minute rhythm. Add a 10-minute infrastructure check: what got promoted this week?</p>
+    </div>
+    <div class="cadence-card">
+      <div class="cadence-icon">📊</div>
+      <div class="cadence-freq">Monthly</div>
+      <h4>Agent Review</h4>
+      <p>30 minutes. Review agent alerts, failure logs, and edge cases. Tune prompts. Adjust thresholds.</p>
+    </div>
+    <div class="cadence-card">
+      <div class="cadence-icon">🪨</div>
+      <div class="cadence-freq">Quarterly</div>
+      <h4>Rocks + Infrastructure</h4>
+      <p>Standard quarterly planning. Add an infrastructure ledger: which SOPs became Skills? Which Skills should become Agents?</p>
+    </div>
+    <div class="cadence-card">
+      <div class="cadence-icon">🔭</div>
+      <div class="cadence-freq">Annually</div>
+      <h4>V/TO + Capacity Audit</h4>
+      <p>Annual planning with an AOS lens: how much of our operating load is running on infrastructure vs. human effort?</p>
+    </div>
+  </div>
+
+  <!-- L10 Comparison -->
+  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:24px;text-align:center;">The Level 10 Meeting: EOS vs. AOS</h3>
+  <div class="l10-comparison">
+    <div class="l10-col l10-eos">
+      <div class="l10-header">Traditional EOS L10 (90 min)</div>
+      <div class="l10-body">
+        <div class="l10-row"><span class="l10-item">Segue — good news, personal & professional</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">Scorecard — review the numbers</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">Rock Review — on/off track</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">Customer/Employee Headlines</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">To-Do List — done or not done</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">IDS — Identify, Discuss, Solve issues</span><span class="l10-time">60 min</span></div>
+        <div class="l10-row"><span class="l10-item">Conclude — recap, rating, closing</span><span class="l10-time">5 min</span></div>
+      </div>
+    </div>
+    <div class="l10-col l10-aos">
+      <div class="l10-header">AOS-Enhanced L10 (90 min)</div>
+      <div class="l10-body">
+        <div class="l10-row"><span class="l10-item">Segue — same</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">Scorecard — includes agent-generated metrics<span class="l10-new-badge">AOS</span></span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">Rock Review — on/off track</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">Headlines — includes agent alerts & exceptions<span class="l10-new-badge">AOS</span></span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">To-Do List — done or not done</span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">IDS — with the Promotion Question<span class="l10-new-badge">AOS</span></span><span class="l10-time">55 min</span></div>
+        <div class="l10-row"><span class="l10-item">Infrastructure Check — what got promoted?<span class="l10-new-badge">AOS</span></span><span class="l10-time">5 min</span></div>
+        <div class="l10-row"><span class="l10-item">Conclude — recap, rating, closing</span><span class="l10-time">5 min</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Week timeline -->
+  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:24px;text-align:center;">What a Typical Week Looks Like</h3>
+  <div class="week-timeline">
+    <div class="week-day">
+      <div class="week-day-marker" style="background:rgba(74,125,255,0.15);color:var(--skill-color);">MON</div>
+      <div class="week-day-content">
+        <h4>Monday — Agents Report In</h4>
+        <p>Before anyone opens their laptop, autonomous agents have already run.</p>
+        <div class="week-items">
+          <div class="week-item"><span class="wi-tag wi-agent">Agent</span>Deal Tracker flagged 2 stalled deals over the weekend</div>
+          <div class="week-item"><span class="wi-tag wi-agent">Agent</span>Infrastructure Health Monitor checked all sending accounts</div>
+          <div class="week-item"><span class="wi-tag wi-agent">Agent</span>Reply Categorizer sorted 14 incoming emails by intent</div>
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Team reviews agent alerts, handles exceptions</div>
+        </div>
+      </div>
+    </div>
+    <div class="week-day">
+      <div class="week-day-marker" style="background:rgba(139,92,246,0.15);color:var(--sop-color);">TUE</div>
+      <div class="week-day-content">
+        <h4>Tuesday — L10 Meeting</h4>
+        <p>The weekly pulse. Same EOS structure, with AOS additions.</p>
+        <div class="week-items">
+          <div class="week-item"><span class="wi-tag wi-skill">Skill</span>Performance Dashboard generates the Scorecard pre-meeting</div>
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Team runs IDS on the top issues</div>
+          <div class="week-item"><span class="wi-tag wi-sop">SOP</span>Every solved issue gets the Promotion Question: "Will this come back?"</div>
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Infrastructure Check: any new SOPs, Skills, or Agents this week?</div>
+        </div>
+      </div>
+    </div>
+    <div class="week-day">
+      <div class="week-day-marker" style="background:rgba(245,158,11,0.15);color:var(--task-color);">WED</div>
+      <div class="week-day-content">
+        <h4>Wednesday–Thursday — Build & Execute</h4>
+        <p>The team does the actual work. Tasks get completed. Builders work on the infrastructure backlog.</p>
+        <div class="week-items">
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Doers execute on their To-Dos from the L10</div>
+          <div class="week-item"><span class="wi-tag wi-skill">Skill</span>Outreach Sequence Builder creates next week's campaigns</div>
+          <div class="week-item"><span class="wi-tag wi-sop">SOP</span>Builder documents a recurring process that came up in IDS</div>
+          <div class="week-item"><span class="wi-tag wi-skill">Skill</span>Post-Meeting Sync processes call recordings into action items</div>
+        </div>
+      </div>
+    </div>
+    <div class="week-day">
+      <div class="week-day-marker" style="background:rgba(0,212,170,0.15);color:var(--agent-color);">FRI</div>
+      <div class="week-day-content">
+        <h4>Friday — Review & Promote</h4>
+        <p>End of week. Close the loop on what happened and what should be permanent.</p>
+        <div class="week-items">
+          <div class="week-item"><span class="wi-tag wi-skill">Skill</span>Session Wrap captures the week's decisions and context</div>
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Builder ships any new SOPs or Skills that are ready</div>
+          <div class="week-item"><span class="wi-tag wi-agent">Agent</span>Investor Engagement Tracker scores the week's touchpoints</div>
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Operator reviews agent performance, tunes if needed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quarterly deep-dive -->
+  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:16px;text-align:center;">The AOS Quarterly</h3>
+  <p class="section-desc" style="text-align:center;margin:0 auto 32px;">Same structure as an EOS quarterly. You score last quarter's Rocks, set new ones, and review the V/TO. AOS adds one new artifact: the <strong style="color:var(--text);">Infrastructure Ledger</strong>.</p>
+
+  <div class="eos-bridge">
+    <div class="bridge-side" style="background:rgba(139,92,246,0.04);border-color:rgba(139,92,246,0.2);">
+      <h3 style="color:var(--sop-color);">Standard Quarterly Review</h3>
+      <ul class="bridge-list" style="--dot-color:var(--sop-color);">
+        <li style="color:var(--text-dim);">Score last quarter's Rocks (complete/incomplete)</li>
+        <li style="color:var(--text-dim);">Review the V/TO — is the vision still right?</li>
+        <li style="color:var(--text-dim);">Set next quarter's Rocks (3-7 per person)</li>
+        <li style="color:var(--text-dim);">Clear the Issues List — what's been lingering?</li>
+        <li style="color:var(--text-dim);">Revisit the Scorecard — right numbers?</li>
+      </ul>
+    </div>
+    <div class="bridge-arrow">+</div>
+    <div class="bridge-side" style="background:rgba(0,212,170,0.04);border-color:rgba(0,212,170,0.2);">
+      <h3 style="color:var(--agent-color);">AOS Infrastructure Ledger</h3>
+      <ul class="bridge-list">
+        <li style="color:var(--text-dim);">How many issues got promoted to SOPs this quarter?</li>
+        <li style="color:var(--text-dim);">How many SOPs became Skills or Agents?</li>
+        <li style="color:var(--text-dim);">What's still stuck as a recurring task someone does manually?</li>
+        <li style="color:var(--text-dim);">Which agents failed? What did we learn?</li>
+        <li style="color:var(--text-dim);">What % of our operating load runs on infrastructure vs. human effort?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="eos-summary">
+    <strong>The goal each quarter:</strong> more of the team's operating load handled by infrastructure, freeing up human attention for the problems that actually need judgment. Not more hours. <strong>More leverage.</strong>
   </div>
 </section>
 
