@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<!-- saved from url=(0239)file:///Users/loganherzog/Library/Application%20Support/Claude/local-agent-mode-sessions/9b824937-abc0-4202-bccc-eb9efb5ecdbb/6be19222-8d58-45ef-b724-9d015f916a9e/local_cb675825-d18b-4c3f-9b1e-128cd8b3beee/outputs/aos-framework-report.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AOS Framework — Ecosystem &amp; Capital Operations</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --surface3: #222233;
+    --border: #2a2a3d;
+    --text: #e8e8f0;
+    --text-dim: #8888a0;
+    --text-muted: #555570;
+    --accent-blue: #4a7dff;
+    --accent-blue-dim: #2a4d9f;
+    --accent-cyan: #00d4aa;
+    --accent-cyan-dim: #00785e;
+    --accent-purple: #8b5cf6;
+    --accent-purple-dim: #5a3ba0;
+    --accent-orange: #f59e0b;
+    --accent-orange-dim: #92600a;
+    --accent-red: #ef4444;
+    --accent-pink: #ec4899;
+    --accent-green: #22c55e;
+    --issue-color: #ef4444;
+    --task-color: #f59e0b;
+    --sop-color: #8b5cf6;
+    --skill-color: #4a7dff;
+    --agent-color: #00d4aa;
+    --gradient-1: linear-gradient(135deg, #4a7dff 0%, #8b5cf6 100%);
+    --gradient-2: linear-gradient(135deg, #00d4aa 0%, #4a7dff 100%);
+    --gradient-3: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(74,125,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(139,92,246,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(0,212,170,0.04) 0%, transparent 40%);
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+  @keyframes drift {
+    0% { transform: translate(0,0) rotate(0deg); }
+    100% { transform: translate(-2%,1%) rotate(1deg); }
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 32px;
+    background: rgba(0,212,170,0.05);
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #fff 0%, #8888a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .stat-issues .num { color: var(--issue-color); }
+  .stat-tasks .num { color: var(--task-color); }
+  .stat-sops .num { color: var(--sop-color); }
+  .stat-skills .num { color: var(--skill-color); }
+  .stat-agents .num { color: var(--agent-color); }
+
+  /* SECTIONS */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    max-width: 700px;
+    margin-bottom: 48px;
+  }
+
+  /* LADDER — Infographic 1 */
+  .ladder-container {
+    position: relative;
+    padding: 60px 0;
+  }
+  .ladder-track {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    position: relative;
+    padding-bottom: 80px;
+  }
+  .ladder-step {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ladder-block {
+    width: 100%;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    border: 1px solid;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .ladder-block:hover {
+    transform: translateY(-4px);
+  }
+  .ladder-block h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .ladder-block p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+  .ladder-block .count {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .step-issue .ladder-block { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); }
+  .step-issue .ladder-block h3, .step-issue .count { color: var(--issue-color); }
+  .step-task .ladder-block { background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.2); }
+  .step-task .ladder-block h3, .step-task .count { color: var(--task-color); }
+  .step-sop .ladder-block { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.2); }
+  .step-sop .ladder-block h3, .step-sop .count { color: var(--sop-color); }
+
+  .ladder-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    min-width: 40px;
+  }
+
+  .fork-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1.5;
+  }
+  .fork-label {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .fork-question {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-purple);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .fork-branches {
+    display: flex;
+    gap: 16px;
+  }
+  .fork-branch {
+    flex: 1;
+    border-radius: 16px;
+    padding: 24px 16px;
+    text-align: center;
+    border: 1px solid;
+    transition: transform 0.3s;
+  }
+  .fork-branch:hover { transform: translateY(-4px); }
+  .fork-branch h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+  .fork-branch p { font-size: 0.78rem; opacity: 0.8; line-height: 1.5; }
+  .fork-branch .count { font-size: 1.8rem; font-weight: 800; margin-bottom: 4px; }
+  .fork-branch .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .branch-skill { background: rgba(74,125,255,0.08); border-color: rgba(74,125,255,0.25); }
+  .branch-skill h3, .branch-skill .count { color: var(--skill-color); }
+  .branch-skill .tag { background: rgba(74,125,255,0.15); color: var(--skill-color); }
+  .branch-agent { background: rgba(0,212,170,0.08); border-color: rgba(0,212,170,0.25); }
+  .branch-agent h3, .branch-agent .count { color: var(--agent-color); }
+  .branch-agent .tag { background: rgba(0,212,170,0.15); color: var(--agent-color); }
+
+  .ladder-baseline {
+    text-align: center;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    margin-top: 32px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ladder-baseline strong { color: var(--text); }
+
+  /* FLOWCHART — Infographic 2 */
+  .flowchart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 20px 0;
+  }
+  .flow-node {
+    padding: 18px 32px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    max-width: 340px;
+    width: 100%;
+    position: relative;
+  }
+  .flow-node.question {
+    background: var(--surface2);
+    border: 2px solid var(--accent-purple);
+    color: var(--text);
+    border-radius: 14px;
+    transform: rotate(0deg);
+  }
+  .flow-node.answer {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .flow-connector {
+    width: 2px;
+    height: 28px;
+    background: var(--border);
+    position: relative;
+  }
+  .flow-branch-row {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+  }
+  .flow-branch-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 200px);
+    height: 2px;
+    background: var(--border);
+  }
+  .flow-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    position: relative;
+  }
+  .flow-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+  }
+  .label-no { color: var(--task-color); background: rgba(245,158,11,0.1); }
+  .label-yes { color: var(--accent-green); background: rgba(34,197,94,0.1); }
+  .flow-terminal {
+    padding: 16px 28px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .terminal-task { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--task-color); }
+  .terminal-sop { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.3); color: var(--sop-color); }
+  .terminal-skill { background: rgba(74,125,255,0.1); border: 1px solid rgba(74,125,255,0.3); color: var(--skill-color); }
+  .terminal-agent { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3); color: var(--agent-color); }
+  .flow-tip {
+    margin-top: 40px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background: var(--surface2);
+    border-left: 3px solid var(--accent-purple);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    max-width: 500px;
+    text-align: center;
+  }
+
+  /* FLYWHEEL — Infographic 3 */
+  .flywheel-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+  .flywheel {
+    position: relative;
+    width: 520px;
+    height: 520px;
+  }
+  .flywheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    z-index: 2;
+  }
+  .flywheel-ring {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+  }
+  .flywheel-arc {
+    position: absolute;
+    width: 150px;
+    text-align: center;
+    z-index: 3;
+  }
+  .arc-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin: 0 auto 8px;
+  }
+  .arc-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .arc-desc {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .arc-surface { top: -20px; left: 50%; transform: translateX(-50%); }
+  .arc-surface .arc-num { background: rgba(239,68,68,0.2); color: var(--issue-color); }
+  .arc-surface .arc-title { color: var(--issue-color); }
+  .arc-solve { top: 50%; right: -30px; transform: translateY(-50%); }
+  .arc-solve .arc-num { background: rgba(245,158,11,0.2); color: var(--task-color); }
+  .arc-solve .arc-title { color: var(--task-color); }
+  .arc-systematize { bottom: -20px; left: 50%; transform: translateX(-50%); }
+  .arc-systematize .arc-num { background: rgba(139,92,246,0.2); color: var(--sop-color); }
+  .arc-systematize .arc-title { color: var(--sop-color); }
+  .arc-scale { top: 50%; left: -30px; transform: translateY(-50%); }
+  .arc-scale .arc-num { background: rgba(0,212,170,0.2); color: var(--agent-color); }
+  .arc-scale .arc-title { color: var(--agent-color); }
+
+  /* Curved arrows (simplified with SVG) */
+  .flywheel-arrows {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  /* ROLE MAP — Infographic 4 */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .role-card {
+    border-radius: 16px;
+    padding: 32px 24px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+  .role-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .role-doer::before { background: var(--task-color); }
+  .role-builder::before { background: var(--sop-color); }
+  .role-operator::before { background: var(--agent-color); }
+  .role-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+  .role-doer .role-icon { background: rgba(245,158,11,0.1); }
+  .role-builder .role-icon { background: rgba(139,92,246,0.1); }
+  .role-operator .role-icon { background: rgba(0,212,170,0.1); }
+  .role-card h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .role-doer h3 { color: var(--task-color); }
+  .role-builder h3 { color: var(--sop-color); }
+  .role-operator h3 { color: var(--agent-color); }
+  .role-card .role-what { font-size: 0.82rem; color: var(--text-dim); margin-bottom: 16px; }
+  .role-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .role-meta-item {
+    display: flex;
+    gap: 8px;
+    font-size: 0.78rem;
+  }
+  .role-meta-label {
+    min-width: 72px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.65rem;
+    padding-top: 2px;
+  }
+  .role-meta-value { color: var(--text-dim); }
+  .role-example {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--surface2);
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-style: italic;
+    border-left: 2px solid var(--border);
+  }
+
+  .timeline-bar {
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 56px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .timeline-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 0 16px;
+  }
+  .timeline-segment span { display: block; font-weight: 400; font-size: 0.65rem; margin-top: 2px; color: rgba(255,255,255,0.6); }
+  .tl-doer { background: rgba(245,158,11,0.2); color: var(--task-color); flex: 1; }
+  .tl-builder { background: rgba(139,92,246,0.2); color: var(--sop-color); flex: 1; }
+  .tl-operator { background: rgba(0,212,170,0.2); color: var(--agent-color); flex: 1.5; }
+
+  .role-insight {
+    text-align: center;
+    padding: 20px 24px;
+    border-radius: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    margin-top: 32px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .role-insight strong { color: var(--text); }
+
+  /* CONCENTRIC — Infographic 5 */
+  .concentric-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .concentric-visual {
+    flex: 1;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .concentric-ring {
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+  }
+  .ring-agent {
+    background: rgba(0,212,170,0.06);
+    border: 1px solid rgba(0,212,170,0.2);
+    padding: 28px 28px 20px;
+  }
+  .ring-sop {
+    background: rgba(139,92,246,0.06);
+    border: 1px solid rgba(139,92,246,0.2);
+    margin: 16px 32px;
+    padding: 24px 24px 18px;
+    border-radius: 16px;
+  }
+  .ring-task {
+    background: rgba(245,158,11,0.06);
+    border: 1px solid rgba(245,158,11,0.2);
+    margin: 12px 24px;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .ring-label {
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .ring-agent .ring-label { color: var(--agent-color); }
+  .ring-sop .ring-label { color: var(--sop-color); }
+  .ring-task .ring-label { color: var(--task-color); }
+  .ring-desc {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  .concentric-examples {
+    flex: 1;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .example-card {
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .example-header {
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .example-steps {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .example-step {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.8rem;
+  }
+  .example-step .step-tag {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    min-width: 52px;
+    text-align: center;
+  }
+  .tag-task { background: rgba(245,158,11,0.15); color: var(--task-color); }
+  .tag-sop { background: rgba(139,92,246,0.15); color: var(--sop-color); }
+  .tag-skill { background: rgba(74,125,255,0.15); color: var(--skill-color); }
+  .tag-agent { background: rgba(0,212,170,0.15); color: var(--agent-color); }
+
+  .bottom-line {
+    margin-top: 40px;
+    padding: 20px 28px;
+    border-radius: 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bottom-line strong { color: var(--text); }
+
+  /* TABLES */
+  .data-section { margin-top: 40px; }
+  .data-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .data-section-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .data-section-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 0.82rem;
+  }
+  .data-table thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .data-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: top;
+  }
+  .data-table tbody tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+  .data-table .cat-cell {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .data-table .promo-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .promo-skill { background: rgba(74,125,255,0.12); color: var(--skill-color); }
+  .promo-agent { background: rgba(0,212,170,0.12); color: var(--agent-color); }
+  .promo-sop { background: rgba(139,92,246,0.12); color: var(--sop-color); }
+
+  .domain-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .domain-summit { background: rgba(245,158,11,0.12); color: var(--task-color); }
+  .domain-ebds { background: rgba(74,125,255,0.12); color: var(--skill-color); }
+
+  /* KEY INSIGHT CALLOUT */
+  .key-insight {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+  .insight-box {
+    border-radius: 20px;
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(74,125,255,0.06) 0%, rgba(0,212,170,0.06) 100%);
+    border: 1px solid rgba(74,125,255,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .insight-box::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+  }
+  .insight-box h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--text);
+    position: relative;
+  }
+  .insight-box p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    position: relative;
+    max-width: 800px;
+  }
+  .insight-box .promo-rules {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+  }
+  .promo-rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+  .promo-rule .dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* HOW THEY FIT */
+  .fit-table {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .fit-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .fit-row:last-child { border-bottom: none; }
+  .fit-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.9rem;
+    background: var(--surface2); color: var(--text-dim);
+    flex-shrink: 0;
+  }
+  .fit-name { font-weight: 700; font-size: 0.9rem; min-width: 200px; color: var(--text); }
+  .fit-answer { font-size: 0.82rem; color: var(--text-dim); }
+
+  /* DIVIDERS */
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .divider hr {
+    border: none;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 60px 40px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .ladder-track { flex-direction: column; align-items: center; gap: 12px; }
+    .ladder-arrow { transform: rotate(90deg); min-width: unset; min-height: 32px; }
+    .fork-branches { flex-direction: column; }
+    .role-grid { grid-template-columns: 1fr; }
+    .concentric-wrapper { flex-direction: column; }
+    .flywheel-wrapper { display: none; }
+    .hero-stats { gap: 24px; }
+    .flow-branch-row { flex-direction: column; gap: 20px; align-items: center; }
+    .flow-branch-row::before { display: none; }
+    .section { padding: 60px 20px; }
+    .insight-box { padding: 28px; }
+    .timeline-bar { flex-direction: column; height: auto; }
+    .timeline-segment { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Ecosystem Framework</div>
+    <h1>AOS Framework</h1>
+    <p>A system for turning recurring operational work into permanent infrastructure — across universities, investors, and partners spanning multiple continents.</p>
+    <div class="hero-stats">
+      <div class="hero-stat stat-issues"><div class="num">7</div><div class="label">Issues</div></div>
+      <div class="hero-stat stat-tasks"><div class="num">8</div><div class="label">Tasks</div></div>
+      <div class="hero-stat stat-sops"><div class="num">8</div><div class="label">SOPs</div></div>
+      <div class="hero-stat stat-skills"><div class="num">14</div><div class="label">Skills</div></div>
+      <div class="hero-stat stat-agents"><div class="num">6</div><div class="label">Agents</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC 1: THE MATURITY LADDER -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--accent-blue);">Infographic 1</div>
+  <h2>The Maturity Ladder</h2>
+  <p class="section-desc">Every piece of work enters as an Issue and climbs the ladder. At the SOP stage, it forks — into a Skill (human-triggered) or an Agent (autonomous). This is the core AOS visual.</p>
+
+  <div class="ladder-container">
+    <div class="ladder-track">
+      <div class="ladder-step step-issue">
+        <div class="ladder-block">
+          <div class="count">7</div>
+          <h3>ISSUE</h3>
+          <p>Surfaced, not yet scoped or understood</p>
+        </div>
+      </div>
+      <div class="ladder-arrow">→</div>
+      <div class="ladder-step step-task">
+        <div class="ladder-block">
+          <div class="count">8</div>
+          <h3>TASK</h3>
+          <p>Scoped, assigned to a human, one-time work</p>
+        </div>
+      </div>
+      <div class="ladder-arrow">→</div>
+      <div class="ladder-step step-sop">
+        <div class="ladder-block">
+          <div class="count">8</div>
+          <h3>SOP</h3>
+          <p>Documented, repeatable process — the fork point</p>
+        </div>
+      </div>
+      <div class="ladder-arrow">→</div>
+      <div class="fork-container">
+        <div class="fork-question">"Does this need a human in the moment?"</div>
+        <div class="fork-branches">
+          <div class="fork-branch branch-skill">
+            <div class="tag">YES → SKILL</div>
+            <div class="count">14</div>
+            <h3>Skill</h3>
+            <p>Human-initiated, local. A team member triggers it and sees the output in real time.</p>
+          </div>
+          <div class="fork-branch branch-agent">
+            <div class="tag">NO → AGENT</div>
+            <div class="count">6</div>
+            <h3>Agent</h3>
+            <p>Autonomous, headless, cloud. Cron jobs, webhooks, event triggers. Alerts when needed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ladder-baseline">
+      <strong>Every solved issue is a candidate for permanent infrastructure.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC 2: WEEKLY PROMOTION QUESTION -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--accent-purple);">Infographic 2</div>
+  <h2>The Weekly Promotion Question</h2>
+  <p class="section-desc">A decision tree for weekly reviews. Not theory — a tool. Print it and tape it to the wall where you run meetings.</p>
+
+  <div class="flowchart">
+    <div class="flow-node question">Something got done this week</div>
+    <div class="flow-connector"></div>
+    <div class="flow-node question">Will this come back?</div>
+    <div class="flow-connector"></div>
+    <div class="flow-branch-row">
+      <div class="flow-branch">
+        <div class="flow-label label-no">NO</div>
+        <div class="flow-connector"></div>
+        <div class="flow-terminal terminal-task">It's a <strong>TASK</strong>. Do it. Done.</div>
+      </div>
+      <div class="flow-branch">
+        <div class="flow-label label-yes">YES</div>
+        <div class="flow-connector"></div>
+        <div class="flow-node question">Is there a written SOP?</div>
+        <div class="flow-connector"></div>
+        <div class="flow-branch-row">
+          <div class="flow-branch">
+            <div class="flow-label label-no">NO</div>
+            <div class="flow-connector"></div>
+            <div class="flow-terminal terminal-sop">Write the <strong>SOP</strong> first.</div>
+          </div>
+          <div class="flow-branch">
+            <div class="flow-label label-yes">YES</div>
+            <div class="flow-connector"></div>
+            <div class="flow-node question">Does it need a human in the room?</div>
+            <div class="flow-connector"></div>
+            <div class="flow-branch-row">
+              <div class="flow-branch">
+                <div class="flow-label label-yes">YES</div>
+                <div class="flow-connector"></div>
+                <div class="flow-terminal terminal-skill">Build a <strong>SKILL</strong></div>
+              </div>
+              <div class="flow-branch">
+                <div class="flow-label label-no">NO</div>
+                <div class="flow-connector"></div>
+                <div class="flow-terminal terminal-agent">Build an <strong>AGENT</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flow-tip">Use this in every weekly review. Ask: <strong>"What did we do this week that we'll do again?"</strong></div>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC 3: ECOSYSTEM COMPOUND LOOP -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--accent-cyan);">Infographic 3</div>
+  <h2>The Ecosystem Compound Loop</h2>
+  <p class="section-desc">Every cycle, the team gets more leverage. The goal isn't to solve each university's problems one at a time — it's to solve them once and deploy the solution everywhere.</p>
+
+  <div class="flywheel-wrapper">
+    <div class="flywheel">
+      <svg class="flywheel-arrows" viewBox="0 0 520 520">
+        <!-- Circular arrow path -->
+        <path d="M 260 60 A 200 200 0 0 1 460 260" fill="none" stroke="rgba(239,68,68,0.3)" stroke-width="2" stroke-dasharray="8,4"></path>
+        <path d="M 460 260 A 200 200 0 0 1 260 460" fill="none" stroke="rgba(245,158,11,0.3)" stroke-width="2" stroke-dasharray="8,4"></path>
+        <path d="M 260 460 A 200 200 0 0 1 60 260" fill="none" stroke="rgba(139,92,246,0.3)" stroke-width="2" stroke-dasharray="8,4"></path>
+        <path d="M 60 260 A 200 200 0 0 1 260 60" fill="none" stroke="rgba(0,212,170,0.3)" stroke-width="2" stroke-dasharray="8,4"></path>
+        <!-- Arrowheads -->
+        <polygon points="455,250 465,260 455,270" fill="rgba(239,68,68,0.5)"></polygon>
+        <polygon points="270,455 260,465 250,455" fill="rgba(245,158,11,0.5)"></polygon>
+        <polygon points="65,270 55,260 65,250" fill="rgba(139,92,246,0.5)"></polygon>
+        <polygon points="250,65 260,55 270,65" fill="rgba(0,212,170,0.5)"></polygon>
+      </svg>
+      <div class="flywheel-ring"></div>
+      <div class="flywheel-center">Every cycle, the team gets more leverage</div>
+      <div class="flywheel-arc arc-surface">
+        <div class="arc-num">1</div>
+        <div class="arc-title">SURFACE</div>
+        <div class="arc-desc">Issues emerge from university nodes, investor conversations, partner feedback</div>
+      </div>
+      <div class="flywheel-arc arc-solve">
+        <div class="arc-num">2</div>
+        <div class="arc-title">SOLVE</div>
+        <div class="arc-desc">Team scopes the issue, assigns a task, executes</div>
+      </div>
+      <div class="flywheel-arc arc-systematize">
+        <div class="arc-num">3</div>
+        <div class="arc-title">SYSTEMATIZE</div>
+        <div class="arc-desc">Document it (SOP), then build it (Skill or Agent)</div>
+      </div>
+      <div class="flywheel-arc arc-scale">
+        <div class="arc-num">4</div>
+        <div class="arc-title">SCALE</div>
+        <div class="arc-desc">Infrastructure runs across all nodes. Frees human attention.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile-friendly version -->
+  <div style="display:flex; flex-direction:column; gap:16px; max-width:600px; margin:0 auto;">
+    <div style="display:flex; align-items:center; gap:16px; padding:16px 20px; border-radius:12px; background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.15);">
+      <div style="width:40px;height:40px;border-radius:50%;background:rgba(239,68,68,0.15);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--issue-color);flex-shrink:0;">1</div>
+      <div><div style="font-weight:700;font-size:0.9rem;color:var(--issue-color);">SURFACE</div><div style="font-size:0.8rem;color:var(--text-dim);">Issues emerge from university nodes, investor conversations, partner feedback, program delivery</div></div>
+    </div>
+    <div style="text-align:center;color:var(--text-muted);font-size:1.2rem;">↓</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);">
+      <div style="width:40px;height:40px;border-radius:50%;background:rgba(245,158,11,0.15);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--task-color);flex-shrink:0;">2</div>
+      <div><div style="font-weight:700;font-size:0.9rem;color:var(--task-color);">SOLVE</div><div style="font-size:0.8rem;color:var(--text-dim);">Team scopes the issue, assigns a task, executes the work</div></div>
+    </div>
+    <div style="text-align:center;color:var(--text-muted);font-size:1.2rem;">↓</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);">
+      <div style="width:40px;height:40px;border-radius:50%;background:rgba(139,92,246,0.15);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--sop-color);flex-shrink:0;">3</div>
+      <div><div style="font-weight:700;font-size:0.9rem;color:var(--sop-color);">SYSTEMATIZE</div><div style="font-size:0.8rem;color:var(--text-dim);">If it repeats, document it (SOP), then build it (Skill or Agent)</div></div>
+    </div>
+    <div style="text-align:center;color:var(--text-muted);font-size:1.2rem;">↓</div>
+    <div style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.15);">
+      <div style="width:40px;height:40px;border-radius:50%;background:rgba(0,212,170,0.15);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--agent-color);flex-shrink:0;">4</div>
+      <div><div style="font-weight:700;font-size:0.9rem;color:var(--agent-color);">SCALE</div><div style="font-size:0.8rem;color:var(--text-dim);">Infrastructure runs across all nodes — frees up human attention for the next issue</div></div>
+    </div>
+    <div style="text-align:center;color:var(--text-muted);font-size:1.2rem;">↻</div>
+    <div style="text-align:center;font-size:0.82rem;color:var(--text-dim);font-style:italic;">New capacity reveals new issues — the loop compounds</div>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC 4: THE ACCOUNTABILITY SPLIT -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--accent-orange);">Infographic 4</div>
+  <h2>The Accountability Split</h2>
+  <p class="section-desc">One person can wear all three hats. The point isn't adding headcount — it's knowing which hat you're wearing so you don't stay stuck as a Doer forever.</p>
+
+  <div class="role-grid">
+    <div class="role-card role-doer">
+      <div class="role-icon">⚡</div>
+      <h3>DOER</h3>
+      <div class="role-what">Execute the task</div>
+      <div class="role-meta">
+        <div class="role-meta-item"><span class="role-meta-label">Horizon</span><span class="role-meta-value">This week</span></div>
+        <div class="role-meta-item"><span class="role-meta-label">Success</span><span class="role-meta-value">Task complete</span></div>
+        <div class="role-meta-item"><span class="role-meta-label">Failure</span><span class="role-meta-value">Dropped ball</span></div>
+      </div>
+      <div class="role-example">"I prepared the deal card for this venture"</div>
+    </div>
+    <div class="role-card role-builder">
+      <div class="role-icon">🔧</div>
+      <h3>BUILDER</h3>
+      <div class="role-what">Turn the task into a reusable system</div>
+      <div class="role-meta">
+        <div class="role-meta-item"><span class="role-meta-label">Horizon</span><span class="role-meta-value">This quarter</span></div>
+        <div class="role-meta-item"><span class="role-meta-label">Success</span><span class="role-meta-value">SOP or Skill shipped</span></div>
+        <div class="role-meta-item"><span class="role-meta-label">Failure</span><span class="role-meta-value">Undocumented process only you can run</span></div>
+      </div>
+      <div class="role-example">"I built a deal card generator that any team member can use"</div>
+    </div>
+    <div class="role-card role-operator">
+      <div class="role-icon">🛰️</div>
+      <h3>OPERATOR</h3>
+      <div class="role-what">Manage the running system</div>
+      <div class="role-meta">
+        <div class="role-meta-item"><span class="role-meta-label">Horizon</span><span class="role-meta-value">Ongoing</span></div>
+        <div class="role-meta-item"><span class="role-meta-label">Success</span><span class="role-meta-value">System runs, exceptions handled</span></div>
+        <div class="role-meta-item"><span class="role-meta-label">Failure</span><span class="role-meta-value">Silent failure nobody catches</span></div>
+      </div>
+      <div class="role-example">"I review the deal cards the system generates, catch errors, improve the prompts"</div>
+    </div>
+  </div>
+
+  <div class="timeline-bar">
+    <div class="timeline-segment tl-doer">Week 1–4: DOER<span>Doing it yourself, learning the pattern</span></div>
+    <div class="timeline-segment tl-builder">Week 5–8: BUILDER<span>Documenting it, making it reusable</span></div>
+    <div class="timeline-segment tl-operator">Week 9+: OPERATOR<span>System runs, you manage exceptions</span></div>
+  </div>
+
+  <div class="role-insight"><strong>If everyone stays in Doer mode, they become the bottleneck.</strong> Both the RUFORUM advisory and Summit operations require small teams doing high-leverage work across many nodes. This visual names the transition path.</div>
+</section>
+
+<!-- INFOGRAPHIC 5: NODE PROMOTION FILTER -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--accent-green);">Infographic 5</div>
+  <h2>The Node Promotion Filter</h2>
+  <p class="section-desc">"Does this repeat across nodes?" — how the same piece of work gets scoped differently depending on how many nodes it touches.</p>
+
+  <div class="concentric-wrapper">
+    <div class="concentric-visual">
+      <div class="concentric-ring ring-agent">
+        <div class="ring-label">AGENT</div>
+        <div class="ring-desc">Runs across all nodes without someone chasing each one</div>
+        <div class="concentric-ring ring-sop">
+          <div class="ring-label">SOP</div>
+          <div class="ring-desc">Every node needs it, documented so anyone can run it</div>
+          <div class="concentric-ring ring-task">
+            <div class="ring-label">TASK</div>
+            <div class="ring-desc">One node needs it — do it and move on</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="concentric-examples">
+      <div class="example-card">
+        <div class="example-header">Venture Portfolio Reporting</div>
+        <div class="example-steps">
+          <div class="example-step"><span class="step-tag tag-task">Task</span>One university asks for a report — just do it</div>
+          <div class="example-step"><span class="step-tag tag-sop">SOP</span>All 17 universities need quarterly reports — standardize</div>
+          <div class="example-step"><span class="step-tag tag-agent">Agent</span>Reports run every quarter automatically — no one chases</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-header">Corporate Partner Matching</div>
+        <div class="example-steps">
+          <div class="example-step"><span class="step-tag tag-task">Task</span>One venture needs a corporate partner — make the intro</div>
+          <div class="example-step"><span class="step-tag tag-sop">SOP</span>Every venture at prototype stage needs matching — document criteria</div>
+          <div class="example-step"><span class="step-tag tag-skill">Skill</span>Pattern is consistent enough to run on data — human reviews output</div>
+        </div>
+      </div>
+      <div class="example-card">
+        <div class="example-header">Post-Summit Deal Follow-Through</div>
+        <div class="example-steps">
+          <div class="example-step"><span class="step-tag tag-task">Task</span>One deal needs a nudge — send the email</div>
+          <div class="example-step"><span class="step-tag tag-sop">SOP</span>Every deal from the summit needs tracking — deal acceleration playbook</div>
+          <div class="example-step"><span class="step-tag tag-agent">Agent</span>Deals stall silently — agent flags stalls, notifies governor's office</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-line">
+    <strong>If one node needs it, do it.</strong> If every node needs it, <strong>build it.</strong> If it needs to run without you watching, <strong>automate it.</strong>
+  </div>
+</section>
+
+<!-- OPERATIONAL DATA: SKILLS -->
+<div class="divider"><hr></div>
+<section class="section">
+  <div class="section-label" style="color: var(--skill-color);">Operational Inventory</div>
+  <h2>Skills, Agents, SOPs, Tasks &amp; Issues</h2>
+  <p class="section-desc">The full inventory of work items across every layer of the AOS framework — from unsolved issues to autonomous agents.</p>
+
+  <div class="data-section">
+    <div class="data-section-header">
+      <div class="data-section-dot" style="background:var(--skill-color);"></div>
+      <h3 style="color:var(--skill-color);">14 Skills</h3>
+      <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Human-Initiated, Local</span>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Skill</th><th>What it does</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="cat-cell">Deal Pipeline Builder</td><td>Identifies matching ventures/IP from a database, generates investment-ready summaries</td><td style="font-size:0.75rem;font-style:italic;">"Show me all agri-tech IP across the TAGDev network at prototype stage or beyond"</td></tr>
+        <tr><td class="cat-cell">Stakeholder Briefing Generator</td><td>Pulls context on a person/org from CRM + docs + past interactions, produces a one-pager</td><td style="font-size:0.75rem;font-style:italic;">"Brief me on the Bamenda ASEC before Thursday's call"</td></tr>
+        <tr><td class="cat-cell">Post-Meeting Sync</td><td>Extracts action items from transcripts → pushes to task tracker → offers to execute next steps</td><td style="font-size:0.75rem;font-style:italic;">"Process yesterday's RUFORUM leadership call"</td></tr>
+        <tr><td class="cat-cell">Comms Scanner</td><td>Scans email, Slack, WhatsApp across accounts, surfaces what needs attention</td><td style="font-size:0.75rem;font-style:italic;">"What came in from university partners overnight?"</td></tr>
+        <tr><td class="cat-cell">Outreach Sequence Builder</td><td>End-to-end campaign creation — writes copy, builds sequence, finds contacts, loads them</td><td style="font-size:0.75rem;font-style:italic;">"Build a 3-step sequence targeting African diaspora fund managers in the US"</td></tr>
+        <tr><td class="cat-cell">Partner Matching Engine</td><td>Cross-references university IP/ventures against corporate partner database</td><td style="font-size:0.75rem;font-style:italic;">"Which corporates in agri-processing map to IP from MUST and UCC?"</td></tr>
+        <tr><td class="cat-cell">Summit Deal Prep</td><td>Compresses deal info into lightweight diligence packages for investor conviction</td><td style="font-size:0.75rem;font-style:italic;">"Generate deal cards for the 12 ventures entering the Live Deal Room"</td></tr>
+        <tr><td class="cat-cell">Curriculum &amp; Program Builder</td><td>Designs experiential learning modules — entrepreneurship, startup clinics, employment readiness</td><td style="font-size:0.75rem;font-style:italic;">"Build a 6-week venture validation module for RUFORUM's School of Leadership"</td></tr>
+        <tr><td class="cat-cell">Performance Dashboard</td><td>Pulls metrics across portfolio, programs, or campaigns — generates visual report</td><td style="font-size:0.75rem;font-style:italic;">"Show me venture creation metrics across the 17 TAGDev universities"</td></tr>
+        <tr><td class="cat-cell">Ecosystem Mapping</td><td>Maps actors by region/sector — universities, incubators, funds, corporates, government</td><td style="font-size:0.75rem;font-style:italic;">"Map the agri-innovation ecosystem across East Africa with RUFORUM nodes"</td></tr>
+        <tr><td class="cat-cell">Session Wrap</td><td>End-of-session extraction — captures tasks, context updates, roadmap ideas</td><td style="font-size:0.75rem;font-style:italic;">"Wrap this session and capture what we decided"</td></tr>
+        <tr><td class="cat-cell">Grant/Fund Application Drafter</td><td>Takes program context + funder requirements, generates first-draft applications or memos</td><td style="font-size:0.75rem;font-style:italic;">"Draft the concept note for the University Innovation Fund using EBDS framework"</td></tr>
+        <tr><td class="cat-cell">Event Operations Manager</td><td>Manages logistics workflows for summits — attendee tracking, scheduling, comms</td><td style="font-size:0.75rem;font-style:italic;">"Send site visit confirmations to all confirmed investor delegates"</td></tr>
+        <tr><td class="cat-cell">Social/Content Publisher</td><td>Posts updates, announcements, thought leadership to social platforms</td><td style="font-size:0.75rem;font-style:italic;">"Post the summit announcement thread"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- AGENTS -->
+  <div class="data-section">
+    <div class="data-section-header">
+      <div class="data-section-dot" style="background:var(--agent-color);"></div>
+      <h3 style="color:var(--agent-color);">6 Agents</h3>
+      <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Autonomous, Headless, Cloud</span>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Agent</th><th>Trigger</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td class="cat-cell">Deal Tracker Monitor</td><td>Cron (daily)</td><td>Scans the deal pipeline (LOI → close), flags stalled deals, surfaces ones approaching government approval deadlines. The GDAD concept, automated.</td></tr>
+        <tr><td class="cat-cell">Reply Categorizer</td><td>Webhook (inbound reply)</td><td>Classifies incoming responses from outreach (interested, not now, routing to colleague, objection), logs it, notifies the right team member</td></tr>
+        <tr><td class="cat-cell">University Progress Monitor</td><td>Cron (monthly)</td><td>Pulls venture creation metrics from each university node — ventures launched, IP filed, corporate partnerships formed — flags who's falling behind</td></tr>
+        <tr><td class="cat-cell">Investor Engagement Tracker</td><td>On event</td><td>Scores investor engagement across touchpoints, alerts when someone crosses the "warm" threshold so a human can follow up</td></tr>
+        <tr><td class="cat-cell">Post-Event Dispatcher</td><td>Webhook (event end)</td><td>Extracts commitments from transcripts, routes action items to correct owners, drafts follow-up communications</td></tr>
+        <tr><td class="cat-cell">Infrastructure Health Monitor</td><td>Cron (daily)</td><td>Checks email deliverability, domain health, sending reputation across all outreach accounts</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SOPs -->
+  <div class="data-section">
+    <div class="data-section-header">
+      <div class="data-section-dot" style="background:var(--sop-color);"></div>
+      <h3 style="color:var(--sop-color);">8 SOPs</h3>
+      <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Documented, Repeatable — Not Yet Automated</span>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Process</th><th>Current State</th><th>Promotion Path</th></tr></thead>
+      <tbody>
+        <tr><td class="cat-cell">Pre-summit deal engineering</td><td>Manual — team curates deals, advances partnerships, runs lightweight diligence</td><td><span class="promo-tag promo-skill">→ Skill</span> deal prep generator + partner matching</td></tr>
+        <tr><td class="cat-cell">University advisory engagement</td><td>Manual — hands-on support designing commercialization vehicles, incubation models</td><td><span class="promo-tag promo-sop">Stays SOP</span> too much context-dependent judgment</td></tr>
+        <tr><td class="cat-cell">Investor outreach for summit</td><td>Manual — identify, segment, reach out, follow up</td><td><span class="promo-tag promo-skill">→ Skill</span> sequence builder + lead enrichment</td></tr>
+        <tr><td class="cat-cell">Post-summit deal follow-through</td><td>Manual — track commitments, chase approvals, report to government</td><td><span class="promo-tag promo-agent">→ Agent</span> deal tracker monitor</td></tr>
+        <tr><td class="cat-cell">Venture portfolio reporting</td><td>Manual — collect data from university nodes, compile, present</td><td><span class="promo-tag promo-agent">→ Agent</span> university progress monitor</td></tr>
+        <tr><td class="cat-cell">Corporate partnership structuring</td><td>Manual — identify corporate, design co-investment or offtake structure, negotiate</td><td><span class="promo-tag promo-sop">Stays SOP</span> high-judgment, low-frequency</td></tr>
+        <tr><td class="cat-cell">Curriculum design</td><td>Manual — program design, module development, facilitator training</td><td><span class="promo-tag promo-skill">→ Skill</span> for first drafts, SOP for facilitation design</td></tr>
+        <tr><td class="cat-cell">RUFORUM Seed Fund deal evaluation</td><td>Manual — review applications, score against criteria, investment committee</td><td><span class="promo-tag promo-skill">→ Skill</span> initial screening, human for final decisions</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TASKS -->
+  <div class="data-section">
+    <div class="data-section-header">
+      <div class="data-section-dot" style="background:var(--task-color);"></div>
+      <h3 style="color:var(--task-color);">8 Tasks</h3>
+      <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Active, One-Time Work</span>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Task</th><th>Domain</th></tr></thead>
+      <tbody>
+        <tr><td class="cat-cell">Finalize summit scope and get formal mandate from USVI government</td><td><span class="domain-tag domain-summit">Summit</span></td></tr>
+        <tr><td class="cat-cell">Design governance structure for RUFORUM Seed Fund</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Recruit entrepreneurial talent for university commercialization engines</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Build the GDAD (Governor's Deal Acceleration Dashboard)</td><td><span class="domain-tag domain-summit">Summit</span></td></tr>
+        <tr><td class="cat-cell">Identify and advance 12+ investable deals for Live Deal Room</td><td><span class="domain-tag domain-summit">Summit</span></td></tr>
+        <tr><td class="cat-cell">Run pilot structural recommendations at select universities (Q4 2025)</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Establish ring-fenced venture vehicle structure at pilot universities</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Map corporate partner pipeline for agri-tech and climate IP</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ISSUES -->
+  <div class="data-section">
+    <div class="data-section-header">
+      <div class="data-section-dot" style="background:var(--issue-color);"></div>
+      <h3 style="color:var(--issue-color);">7 Issues</h3>
+      <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Surfaced, Not Yet Scoped</span>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Issue</th><th>Domain</th></tr></thead>
+      <tbody>
+        <tr><td class="cat-cell">Universities can't form companies directly — legal structures vary by country and need case-by-case solutions</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Entrepreneurship centers at several universities are "skills training" not venture creation — need to differentiate or restructure</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Inclusion in entrepreneurship is a blind spot — not yet explored or addressed</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">The "grantrepreneur" pattern — how to wean grant-funded enterprises off dependency without killing them</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Some universities burned by past partnership failures — trust deficit with private sector</td><td><span class="domain-tag domain-ebds">EBDS</span></td></tr>
+        <tr><td class="cat-cell">Summit success depends on deals being engineered BEFORE investors arrive — who owns the pre-work and what cadence?</td><td><span class="domain-tag domain-summit">Summit</span></td></tr>
+        <tr><td class="cat-cell">USVI positioning as capital formation hub requires legislative/regulatory action — who's driving that and on what timeline?</td><td><span class="domain-tag domain-summit">Summit</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- KEY INSIGHT -->
+<section class="key-insight">
+  <div class="insight-box">
+    <h3>Why AOS Matters for This Ecosystem</h3>
+    <p>The RUFORUM and Summit work has a problem EOS never had to solve: the units aren't all under one roof. You're coordinating across 17+ universities, multiple governments, private sector partners, and investor networks spread across continents. That makes the Agent layer disproportionately important. In a single-office business, you can walk over and ask someone. In a distributed ecosystem, the things that fall through cracks are the things nobody's watching between meetings.</p>
+    <div class="promo-rules">
+      <div class="promo-rule"><div class="dot" style="background:var(--task-color);"></div>If <strong>one university</strong> needs it, it's a <strong>task</strong>.</div>
+      <div class="promo-rule"><div class="dot" style="background:var(--sop-color);"></div>If <strong>every university</strong> needs it, it's an <strong>SOP</strong>.</div>
+      <div class="promo-rule"><div class="dot" style="background:var(--agent-color);"></div>If it needs to run <strong>across all nodes without someone chasing each one</strong>, it's an <strong>agent</strong>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW THE 5 INFOGRAPHICS FIT -->
+<div class="divider"><hr></div>
+<section class="section">
+  <h2>How These Five Work Together</h2>
+  <div class="fit-table">
+    <div class="fit-row"><div class="fit-num">1</div><div class="fit-name" style="color:var(--accent-blue);">The Maturity Ladder</div><div class="fit-answer">"What is AOS?"</div></div>
+    <div class="fit-row"><div class="fit-num">2</div><div class="fit-name" style="color:var(--accent-purple);">The Weekly Promotion Question</div><div class="fit-answer">"How do I use it every week?"</div></div>
+    <div class="fit-row"><div class="fit-num">3</div><div class="fit-name" style="color:var(--accent-cyan);">The Ecosystem Compound Loop</div><div class="fit-answer">"Why does this matter long-term?"</div></div>
+    <div class="fit-row"><div class="fit-num">4</div><div class="fit-name" style="color:var(--accent-orange);">The Accountability Split</div><div class="fit-answer">"What changes about my role?"</div></div>
+    <div class="fit-row"><div class="fit-num">5</div><div class="fit-name" style="color:var(--accent-green);">The Node Promotion Filter</div><div class="fit-answer">"How do I decide what to build?"</div></div>
+  </div>
+</section>
+
+<div class="footer">AOS Framework — Ecosystem &amp; Capital Operations</div>
+
+
+</body></html>
