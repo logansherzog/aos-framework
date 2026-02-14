@@ -594,6 +594,144 @@
   }
   .role-insight strong { color: var(--text); }
 
+  /* ORG CHART — Infographic 4 */
+  .org-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 20px 0 40px;
+  }
+  .org-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 0;
+  }
+  .org-card {
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1px solid;
+    text-align: center;
+    position: relative;
+    min-width: 260px;
+    max-width: 360px;
+  }
+  .org-card h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .org-card .org-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .org-card p {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .org-card .org-owns {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+  .org-card .org-owns span {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .org-connector {
+    width: 2px;
+    height: 32px;
+    background: var(--border);
+  }
+  .org-connector-h {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+  }
+  .org-connector-h::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: var(--border);
+  }
+  .org-row {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+  }
+  .org-row > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .org-principal {
+    background: rgba(245,158,11,0.04);
+    border-color: rgba(245,158,11,0.25);
+  }
+  .org-principal h3 { color: var(--task-color); }
+  .org-principal .org-title { color: var(--task-color); }
+  .org-visionary {
+    background: rgba(139,92,246,0.04);
+    border-color: rgba(139,92,246,0.25);
+  }
+  .org-visionary h3 { color: var(--sop-color); }
+  .org-visionary .org-title { color: var(--sop-color); }
+  .org-integrator {
+    background: rgba(74,125,255,0.04);
+    border-color: rgba(74,125,255,0.25);
+  }
+  .org-integrator h3 { color: var(--skill-color); }
+  .org-integrator .org-title { color: var(--skill-color); }
+  .org-technician {
+    background: rgba(0,212,170,0.04);
+    border-color: rgba(0,212,170,0.25);
+  }
+  .org-technician h3 { color: var(--agent-color); }
+  .org-technician .org-title { color: var(--agent-color); }
+
+  .org-multiplier {
+    text-align: center;
+    padding: 24px 32px;
+    border-radius: 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    max-width: 700px;
+    margin: 40px auto 0;
+  }
+  .org-multiplier h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .org-multiplier p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
   /* CONCENTRIC — Infographic 5 */
   .concentric-wrapper {
     display: flex;
@@ -1157,6 +1295,9 @@
     .insight-box { padding: 28px; }
     .timeline-bar { flex-direction: column; height: auto; }
     .timeline-segment { padding: 12px; }
+    .org-row { flex-direction: column; align-items: center; }
+    .org-connector-h::before { display: none; }
+    .org-card { min-width: unset; width: 100%; max-width: 340px; }
     .eos-grid { grid-template-columns: 1fr; }
     .eos-bridge { flex-direction: column; }
     .bridge-arrow { transform: rotate(90deg); min-width: unset; min-height: 32px; }
@@ -1176,11 +1317,14 @@
     <h1>AOS Framework</h1>
     <p>A system for turning recurring operational work into permanent infrastructure — across universities, investors, and partners spanning multiple continents.</p>
     <div class="hero-stats">
-      <div class="hero-stat stat-issues"><div class="num">7</div><div class="label">Issues</div></div>
-      <div class="hero-stat stat-tasks"><div class="num">8</div><div class="label">Tasks</div></div>
-      <div class="hero-stat stat-sops"><div class="num">8</div><div class="label">SOPs</div></div>
-      <div class="hero-stat stat-skills"><div class="num">14</div><div class="label">Skills</div></div>
-      <div class="hero-stat stat-agents"><div class="num">6</div><div class="label">Agents</div></div>
+      <div class="hero-stat stat-issues"><div class="label">Issues</div></div>
+      <div class="hero-stat" style="color:var(--text-muted);font-size:1.2rem;">→</div>
+      <div class="hero-stat stat-tasks"><div class="label">Tasks</div></div>
+      <div class="hero-stat" style="color:var(--text-muted);font-size:1.2rem;">→</div>
+      <div class="hero-stat stat-sops"><div class="label">SOPs</div></div>
+      <div class="hero-stat" style="color:var(--text-muted);font-size:1.2rem;">→</div>
+      <div class="hero-stat stat-skills"><div class="label">Skills</div></div>
+      <div class="hero-stat stat-agents"><div class="label">Agents</div></div>
     </div>
   </div>
 </section>
@@ -1266,7 +1410,6 @@
     <div class="ladder-track">
       <div class="ladder-step step-issue">
         <div class="ladder-block">
-          <div class="count">7</div>
           <h3>ISSUE</h3>
           <p>Surfaced, not yet scoped or understood</p>
         </div>
@@ -1274,7 +1417,6 @@
       <div class="ladder-arrow">→</div>
       <div class="ladder-step step-task">
         <div class="ladder-block">
-          <div class="count">8</div>
           <h3>TASK</h3>
           <p>Scoped, assigned to a human, one-time work</p>
         </div>
@@ -1282,7 +1424,6 @@
       <div class="ladder-arrow">→</div>
       <div class="ladder-step step-sop">
         <div class="ladder-block">
-          <div class="count">8</div>
           <h3>SOP</h3>
           <p>Documented, repeatable process — the fork point</p>
         </div>
@@ -1293,13 +1434,11 @@
         <div class="fork-branches">
           <div class="fork-branch branch-skill">
             <div class="tag">YES → SKILL</div>
-            <div class="count">14</div>
             <h3>Skill</h3>
             <p>Human-initiated, local. A team member triggers it and sees the output in real time.</p>
           </div>
           <div class="fork-branch branch-agent">
             <div class="tag">NO → AGENT</div>
-            <div class="count">6</div>
             <h3>Agent</h3>
             <p>Autonomous, headless, cloud. Cron jobs, webhooks, event triggers. Alerts when needed.</p>
           </div>
@@ -1438,56 +1577,82 @@
   </div>
 </section>
 
-<!-- INFOGRAPHIC 4: THE ACCOUNTABILITY SPLIT -->
+<!-- INFOGRAPHIC 4: THE AOS TEAM -->
 <div class="divider"><hr></div>
 <section class="section">
   <div class="section-label" style="color: var(--accent-orange);">Infographic 4</div>
-  <h2>The Accountability Split</h2>
-  <p class="section-desc">One person can wear all three hats. The point isn't adding headcount — it's knowing which hat you're wearing so you don't stay stuck as a Doer forever.</p>
+  <h2>The AOS Team</h2>
+  <p class="section-desc">Every initiative needs three seats filled. Not three departments — three people. The Principal sets the direction. Underneath, a Visionary, an Integrator, and a Technician form the operating core that turns strategy into running infrastructure.</p>
 
-  <div class="role-grid">
-    <div class="role-card role-doer">
-      <div class="role-icon">⚡</div>
-      <h3>DOER</h3>
-      <div class="role-what">Execute the task</div>
-      <div class="role-meta">
-        <div class="role-meta-item"><span class="role-meta-label">Horizon</span><span class="role-meta-value">This week</span></div>
-        <div class="role-meta-item"><span class="role-meta-label">Success</span><span class="role-meta-value">Task complete</span></div>
-        <div class="role-meta-item"><span class="role-meta-label">Failure</span><span class="role-meta-value">Dropped ball</span></div>
+  <div class="org-wrapper">
+    <!-- Principal at top -->
+    <div class="org-top">
+      <div class="org-card org-principal">
+        <div class="org-title">Principal</div>
+        <h3>Bunmi</h3>
+        <p>Sets the strategic direction across all initiatives. Engages at the vision layer — doesn't manage the day-to-day. Each team runs autonomously with enough context to move.</p>
+        <div class="org-owns">
+          <span style="background:rgba(245,158,11,0.12);color:var(--task-color);">Strategy</span>
+          <span style="background:rgba(245,158,11,0.12);color:var(--task-color);">Relationships</span>
+          <span style="background:rgba(245,158,11,0.12);color:var(--task-color);">Capital</span>
+        </div>
       </div>
-      <div class="role-example">"I prepared the deal card for this venture"</div>
+      <div class="org-connector"></div>
     </div>
-    <div class="role-card role-builder">
-      <div class="role-icon">🔧</div>
-      <h3>BUILDER</h3>
-      <div class="role-what">Turn the task into a reusable system</div>
-      <div class="role-meta">
-        <div class="role-meta-item"><span class="role-meta-label">Horizon</span><span class="role-meta-value">This quarter</span></div>
-        <div class="role-meta-item"><span class="role-meta-label">Success</span><span class="role-meta-value">SOP or Skill shipped</span></div>
-        <div class="role-meta-item"><span class="role-meta-label">Failure</span><span class="role-meta-value">Undocumented process only you can run</span></div>
-      </div>
-      <div class="role-example">"I built a deal card generator that any team member can use"</div>
+
+    <!-- Horizontal connector -->
+    <div class="org-connector-h">
+      <div style="width:100%;"></div>
     </div>
-    <div class="role-card role-operator">
-      <div class="role-icon">🛰️</div>
-      <h3>OPERATOR</h3>
-      <div class="role-what">Manage the running system</div>
-      <div class="role-meta">
-        <div class="role-meta-item"><span class="role-meta-label">Horizon</span><span class="role-meta-value">Ongoing</span></div>
-        <div class="role-meta-item"><span class="role-meta-label">Success</span><span class="role-meta-value">System runs, exceptions handled</span></div>
-        <div class="role-meta-item"><span class="role-meta-label">Failure</span><span class="role-meta-value">Silent failure nobody catches</span></div>
+
+    <!-- Three seats -->
+    <div class="org-row">
+      <div>
+        <div class="org-connector"></div>
+        <div class="org-card org-visionary">
+          <div class="org-title">Visionary</div>
+          <h3>The Strategist</h3>
+          <p>Translates the Principal's direction into a clear strategic picture the team can execute against. Owns the V/TO, sets the Rocks, decides what matters this quarter. Provides enough vision that the team doesn't need to wait for the Principal to move.</p>
+          <div class="org-owns">
+            <span style="background:rgba(139,92,246,0.12);color:var(--sop-color);">V/TO</span>
+            <span style="background:rgba(139,92,246,0.12);color:var(--sop-color);">Rocks</span>
+            <span style="background:rgba(139,92,246,0.12);color:var(--sop-color);">Priorities</span>
+          </div>
+        </div>
       </div>
-      <div class="role-example">"I review the deal cards the system generates, catch errors, improve the prompts"</div>
+      <div>
+        <div class="org-connector"></div>
+        <div class="org-card org-integrator">
+          <div class="org-title">Integrator</div>
+          <h3>The Operator</h3>
+          <p>Manages the people and conversations required to move things forward. High EQ, high detail-orientation. Runs the L10, chases the follow-ups, manages stakeholder relationships. Brings order to the strategic conversations and makes sure nothing falls through.</p>
+          <div class="org-owns">
+            <span style="background:rgba(74,125,255,0.12);color:var(--skill-color);">L10</span>
+            <span style="background:rgba(74,125,255,0.12);color:var(--skill-color);">People</span>
+            <span style="background:rgba(74,125,255,0.12);color:var(--skill-color);">Follow-through</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="org-connector"></div>
+        <div class="org-card org-technician">
+          <div class="org-title">Technician</div>
+          <h3>The Builder</h3>
+          <p>Primary owner of all agents and automated workflows. Moves work from Issue → SOP → Skill → Agent. Manages the AI infrastructure roadmap. When the team identifies something that repeats, the Technician makes it permanent. Thinks in systems, ships in weeks.</p>
+          <div class="org-owns">
+            <span style="background:rgba(0,212,170,0.12);color:var(--agent-color);">Skills</span>
+            <span style="background:rgba(0,212,170,0.12);color:var(--agent-color);">Agents</span>
+            <span style="background:rgba(0,212,170,0.12);color:var(--agent-color);">AI Roadmap</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="timeline-bar">
-    <div class="timeline-segment tl-doer">Week 1–4: DOER<span>Doing it yourself, learning the pattern</span></div>
-    <div class="timeline-segment tl-builder">Week 5–8: BUILDER<span>Documenting it, making it reusable</span></div>
-    <div class="timeline-segment tl-operator">Week 9+: OPERATOR<span>System runs, you manage exceptions</span></div>
+  <div class="org-multiplier">
+    <h4>Three People. Full Operating Leverage.</h4>
+    <p>With this structure, a team of three can run faster and further than most large organizations. The Visionary keeps the team pointed at the right problems. The Integrator keeps the humans coordinated. The Technician keeps turning solved problems into infrastructure that never needs solving again. As the infrastructure compounds, the same three people handle more — without working more.</p>
   </div>
-
-  <div class="role-insight"><strong>If everyone stays in Doer mode, they become the bottleneck.</strong> Both the RUFORUM advisory and Summit operations require small teams doing high-leverage work across many nodes. This visual names the transition path.</div>
 </section>
 
 <!-- INFOGRAPHIC 5: NODE PROMOTION FILTER -->
@@ -1555,7 +1720,7 @@
   <div class="data-section">
     <div class="data-section-header">
       <div class="data-section-dot" style="background:var(--skill-color);"></div>
-      <h3 style="color:var(--skill-color);">14 Skills</h3>
+      <h3 style="color:var(--skill-color);">Skills</h3>
       <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Human-Initiated, Local</span>
     </div>
     <table class="data-table">
@@ -1583,7 +1748,7 @@
   <div class="data-section">
     <div class="data-section-header">
       <div class="data-section-dot" style="background:var(--agent-color);"></div>
-      <h3 style="color:var(--agent-color);">6 Agents</h3>
+      <h3 style="color:var(--agent-color);">Agents</h3>
       <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Autonomous, Headless, Cloud</span>
     </div>
     <table class="data-table">
@@ -1603,7 +1768,7 @@
   <div class="data-section">
     <div class="data-section-header">
       <div class="data-section-dot" style="background:var(--sop-color);"></div>
-      <h3 style="color:var(--sop-color);">8 SOPs</h3>
+      <h3 style="color:var(--sop-color);">SOPs</h3>
       <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Documented, Repeatable — Not Yet Automated</span>
     </div>
     <table class="data-table">
@@ -1625,7 +1790,7 @@
   <div class="data-section">
     <div class="data-section-header">
       <div class="data-section-dot" style="background:var(--task-color);"></div>
-      <h3 style="color:var(--task-color);">8 Tasks</h3>
+      <h3 style="color:var(--task-color);">Tasks</h3>
       <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Active, One-Time Work</span>
     </div>
     <table class="data-table">
@@ -1647,7 +1812,7 @@
   <div class="data-section">
     <div class="data-section-header">
       <div class="data-section-dot" style="background:var(--issue-color);"></div>
-      <h3 style="color:var(--issue-color);">7 Issues</h3>
+      <h3 style="color:var(--issue-color);">Issues</h3>
       <span style="font-size:0.78rem;color:var(--text-muted);margin-left:8px;">Surfaced, Not Yet Scoped</span>
     </div>
     <table class="data-table">
@@ -1686,7 +1851,7 @@
     <div class="fit-row"><div class="fit-num">1</div><div class="fit-name" style="color:var(--accent-blue);">The Maturity Ladder</div><div class="fit-answer">"What is AOS?"</div></div>
     <div class="fit-row"><div class="fit-num">2</div><div class="fit-name" style="color:var(--accent-purple);">The Weekly Promotion Question</div><div class="fit-answer">"How do I use it every week?"</div></div>
     <div class="fit-row"><div class="fit-num">3</div><div class="fit-name" style="color:var(--accent-cyan);">The Ecosystem Compound Loop</div><div class="fit-answer">"Why does this matter long-term?"</div></div>
-    <div class="fit-row"><div class="fit-num">4</div><div class="fit-name" style="color:var(--accent-orange);">The Accountability Split</div><div class="fit-answer">"What changes about my role?"</div></div>
+    <div class="fit-row"><div class="fit-num">4</div><div class="fit-name" style="color:var(--accent-orange);">The AOS Team</div><div class="fit-answer">"Who does what?"</div></div>
     <div class="fit-row"><div class="fit-num">5</div><div class="fit-name" style="color:var(--accent-green);">The Node Promotion Filter</div><div class="fit-answer">"How do I decide what to build?"</div></div>
   </div>
 </section>
@@ -1696,7 +1861,7 @@
 <section class="section">
   <div class="section-label" style="color: var(--accent-cyan);">Operating Rhythm</div>
   <h2>A Week in AOS</h2>
-  <p class="section-desc">AOS doesn't add meetings. It upgrades the ones you already have. Here's what the weekly, monthly, and quarterly cadences look like when Skills and Agents are part of the team.</p>
+  <p class="section-desc">AOS doesn't add meetings. It upgrades the ones you already have. Every meeting is recorded. Transcripts feed agents that auto-document SOPs, extract action items, and trigger workflows already built. The EOS structure is critical — but it purposefully makes space to give LLMs the context they need, and the Technician delegates tasks to agents as the infrastructure matures.</p>
 
   <!-- Cadence overview -->
   <div class="cadence-grid">
@@ -1726,6 +1891,30 @@
     </div>
   </div>
 
+  <!-- Transcript Flow -->
+  <div style="max-width:800px;margin:0 auto 56px;padding:32px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,170,0.04) 0%,rgba(74,125,255,0.04) 100%);border:1px solid rgba(0,212,170,0.15);">
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:12px;color:var(--text);">🎙️ Every Meeting Feeds the Machine</h3>
+    <p style="font-size:0.88rem;color:var(--text-dim);line-height:1.7;margin-bottom:16px;">Every L10, quarterly, and strategy call is recorded. The transcript doesn't just sit in a folder — it's the primary input for the AI layer. This is how meetings create infrastructure without extra work from the team.</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;align-items:baseline;gap:10px;font-size:0.84rem;color:var(--text-dim);">
+        <span style="padding:2px 8px;border-radius:6px;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;background:rgba(245,158,11,0.12);color:var(--task-color);white-space:nowrap;">STEP 1</span>
+        Meeting happens. Team talks through issues, makes decisions, assigns work.
+      </div>
+      <div style="display:flex;align-items:baseline;gap:10px;font-size:0.84rem;color:var(--text-dim);">
+        <span style="padding:2px 8px;border-radius:6px;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;background:rgba(0,212,170,0.12);color:var(--agent-color);white-space:nowrap;">STEP 2</span>
+        Transcript goes to agents. Action items extracted. Tasks created and assigned to owners.
+      </div>
+      <div style="display:flex;align-items:baseline;gap:10px;font-size:0.84rem;color:var(--text-dim);">
+        <span style="padding:2px 8px;border-radius:6px;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;background:rgba(139,92,246,0.12);color:var(--sop-color);white-space:nowrap;">STEP 3</span>
+        Recurring patterns detected? Agent drafts the SOP automatically. Technician reviews and ships.
+      </div>
+      <div style="display:flex;align-items:baseline;gap:10px;font-size:0.84rem;color:var(--text-dim);">
+        <span style="padding:2px 8px;border-radius:6px;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;background:rgba(74,125,255,0.12);color:var(--skill-color);white-space:nowrap;">STEP 4</span>
+        Over time, more of the meeting's output is delegated to agents. Humans focus on judgment calls.
+      </div>
+    </div>
+  </div>
+
   <!-- L10 Comparison -->
   <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:24px;text-align:center;">The Level 10 Meeting: EOS vs. AOS</h3>
   <div class="l10-comparison">
@@ -1742,7 +1931,7 @@
       </div>
     </div>
     <div class="l10-col l10-aos">
-      <div class="l10-header">AOS-Enhanced L10 (90 min)</div>
+      <div class="l10-header">AOS-Enhanced L10 (90 min) <span style="font-weight:400;font-size:0.75rem;color:var(--agent-color);margin-left:8px;">🎙️ Recorded</span></div>
       <div class="l10-body">
         <div class="l10-row"><span class="l10-item">Segue — same</span><span class="l10-time">5 min</span></div>
         <div class="l10-row"><span class="l10-item">Scorecard — includes agent-generated metrics<span class="l10-new-badge">AOS</span></span><span class="l10-time">5 min</span></div>
@@ -1752,6 +1941,9 @@
         <div class="l10-row"><span class="l10-item">IDS — with the Promotion Question<span class="l10-new-badge">AOS</span></span><span class="l10-time">55 min</span></div>
         <div class="l10-row"><span class="l10-item">Infrastructure Check — what got promoted?<span class="l10-new-badge">AOS</span></span><span class="l10-time">5 min</span></div>
         <div class="l10-row"><span class="l10-item">Conclude — recap, rating, closing</span><span class="l10-time">5 min</span></div>
+        <div style="margin-top:12px;padding:12px 14px;border-radius:10px;background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.15);font-size:0.78rem;color:var(--text-dim);line-height:1.5;">
+          <strong style="color:var(--agent-color);">After the meeting:</strong> Transcript is processed by agents — action items extracted, new SOPs auto-drafted, tasks assigned, and the Technician's queue updated with promotion candidates.
+        </div>
       </div>
     </div>
   </div>
@@ -1775,13 +1967,15 @@
     <div class="week-day">
       <div class="week-day-marker" style="background:rgba(139,92,246,0.15);color:var(--sop-color);">TUE</div>
       <div class="week-day-content">
-        <h4>Tuesday — L10 Meeting</h4>
-        <p>The weekly pulse. Same EOS structure, with AOS additions.</p>
+        <h4>Tuesday — L10 Meeting 🎙️</h4>
+        <p>The weekly pulse. Recorded. Same EOS structure, with AOS additions. The transcript becomes the input for everything that happens next.</p>
         <div class="week-items">
           <div class="week-item"><span class="wi-tag wi-skill">Skill</span>Performance Dashboard generates the Scorecard pre-meeting</div>
-          <div class="week-item"><span class="wi-tag wi-human">Human</span>Team runs IDS on the top issues</div>
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Integrator runs the L10. Team runs IDS on the top issues.</div>
           <div class="week-item"><span class="wi-tag wi-sop">SOP</span>Every solved issue gets the Promotion Question: "Will this come back?"</div>
-          <div class="week-item"><span class="wi-tag wi-human">Human</span>Infrastructure Check: any new SOPs, Skills, or Agents this week?</div>
+          <div class="week-item"><span class="wi-tag wi-human">Human</span>Infrastructure Check: what got promoted? Any agent failures?</div>
+          <div class="week-item"><span class="wi-tag wi-agent">Agent</span>Post-meeting: transcript → action items extracted, SOPs auto-drafted, tasks routed to owners</div>
+          <div class="week-item"><span class="wi-tag wi-agent">Agent</span>Promotion candidates flagged → queued for the Technician</div>
         </div>
       </div>
     </div>
@@ -1814,8 +2008,8 @@
   </div>
 
   <!-- Quarterly deep-dive -->
-  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:16px;text-align:center;">The AOS Quarterly</h3>
-  <p class="section-desc" style="text-align:center;margin:0 auto 32px;">Same structure as an EOS quarterly. You score last quarter's Rocks, set new ones, and review the V/TO. AOS adds one new artifact: the <strong style="color:var(--text);">Infrastructure Ledger</strong>.</p>
+  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:16px;text-align:center;">The AOS Quarterly 🎙️</h3>
+  <p class="section-desc" style="text-align:center;margin:0 auto 32px;">Same structure as an EOS quarterly — recorded. You score last quarter's Rocks, set new ones, and review the V/TO. AOS adds one new artifact: the <strong style="color:var(--text);">Infrastructure Ledger</strong>. The quarterly transcript feeds the Technician's roadmap for the next quarter.</p>
 
   <div class="eos-bridge">
     <div class="bridge-side" style="background:rgba(139,92,246,0.04);border-color:rgba(139,92,246,0.2);">
